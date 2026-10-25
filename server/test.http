@@ -1,0 +1,33 @@
+### Register
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test Farmer",
+  "email": "farmer@test.com",
+  "password": "123456",
+  "role": "farmer"
+}
+
+### Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "farmer@test.com",
+  "password": "123456"
+}
+
+### Add Product
+POST http://localhost:5000/api/products
+Content-Type: application/json
+Authorization: Bearer PASTE_TOKEN_HERE
+
+{
+  "name": "Tomato",
+  "price": 40,
+  "stock": 100
+}
+
+### Get Products
+GET http://localhost:5000/api/products
