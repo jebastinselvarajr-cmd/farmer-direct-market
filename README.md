@@ -33,21 +33,24 @@ A full-stack MERN web app where **farmers sell their produce directly to custome
 
 ## 📸 Screenshots
 
-| Products | Cart | Farmer Orders |
-|---|---|---|
-| 
+### Products
 
-![Products](screenshots/products.png)
 
- | 
+![Products](screenshots/products.JPEG)
 
-![Cart](screenshots/cart.png)
 
- | 
 
-![Farmer Orders](screenshots/farmer-orders.png)
+### Cart
 
- |
+
+![Cart](screenshots/cart.JPEG)
+
+
+
+### Farmer Orders
+
+
+![Farmer Orders](screenshots/farmer-market.JPEG)
 
 ## 🚀 Run locally
 
