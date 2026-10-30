@@ -7,6 +7,9 @@ export default function Navbar() {
   const { items } = useCart();
   const cartCount = items.reduce((n, i) => n + (i.qty || 1), 0);
 
+  const isFarmer = user?.role === 'farmer';
+  const isCustomer = user?.role === 'customer';
+
   return (
     <>
       <header className="topbar">
@@ -24,16 +27,27 @@ export default function Navbar() {
               <button onClick={logout}>Logout</button>
             </>
           ) : (
-            <Link to="/login">Login</Link>
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/register" style={{ marginLeft: 12 }}>
+                Register
+              </Link>
+            </>
           )}
         </div>
       </header>
 
       <nav className="nav-links">
         <Link to="/">🏠 Home</Link>
-        <Link to="/cart">🛒 Cart ({cartCount})</Link>
-        {user && <Link to="/my-orders">📦 My Orders</Link>}
-        {user?.role === 'farmer' && (
+
+        {/* Customer-ku (and login pannadhavangaluku) mattum */}
+        {(!user || isCustomer) && (
+          <Link to="/cart">🛒 Cart ({cartCount})</Link>
+        )}
+        {isCustomer && <Link to="/my-orders">📦 My Orders</Link>}
+
+        {/* Farmer-ku mattum */}
+        {isFarmer && (
           <>
             <Link to="/add-product">➕ Add Product</Link>
             <Link to="/my-products">🧑‍🌾 My Products</Link>
