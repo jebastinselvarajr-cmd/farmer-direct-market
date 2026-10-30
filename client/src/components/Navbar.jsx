@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 
@@ -38,20 +38,22 @@ export default function Navbar() {
       </header>
 
       <nav className="nav-links">
-        <Link to="/">🏠 Home</Link>
-
-        {/* Customer-ku (and login pannadhavangaluku) mattum */}
-        {(!user || isCustomer) && (
-          <Link to="/cart">🛒 Cart ({cartCount})</Link>
+        {user && (
+          <NavLink to="/" end>
+            🏠 Home
+          </NavLink>
         )}
-        {isCustomer && <Link to="/my-orders">📦 My Orders</Link>}
+
+        {/* Customer-ku mattum */}
+        {isCustomer && <NavLink to="/cart">🛒 Cart ({cartCount})</NavLink>}
+        {isCustomer && <NavLink to="/my-orders">📦 My Orders</NavLink>}
 
         {/* Farmer-ku mattum */}
         {isFarmer && (
           <>
-            <Link to="/add-product">➕ Add Product</Link>
-            <Link to="/my-products">🧑‍🌾 My Products</Link>
-            <Link to="/farmer-orders">📋 Orders for my products</Link>
+            <NavLink to="/add-product">➕ Add Product</NavLink>
+            <NavLink to="/my-products">🧑‍🌾 My Products</NavLink>
+            <NavLink to="/farmer-orders">📋 Orders for my products</NavLink>
           </>
         )}
       </nav>

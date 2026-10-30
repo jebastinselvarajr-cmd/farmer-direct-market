@@ -389,3 +389,12 @@ button.wide {
   font-size: 14px;
   line-height: 1.6;
 }
+.nav-links a.active {
+  background: var(--green-dark);
+  color: #fff;
+}
+.farmer-name {
+  font-size: 13px;
+  color: #6b5b73;
+  margin: 2px 0 6px;
+}
